@@ -10,3 +10,16 @@ systick
 int
 printf
 backlight
+arg
+enum
+endverbatim
+defgroup
+addtogroup
+ref
+ch
+li
+ingroup
+subpriority
+microcontroller
+struct
+prescaler

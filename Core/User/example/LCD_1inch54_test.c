@@ -15,7 +15,7 @@ void LCD_1in54_test() {
 	printf("Paint_NewImage\r\n");
 	Paint_NewImage(LCD_1IN54_WIDTH, LCD_1IN54_HEIGHT, 0, WHITE);
 
-	printf("Set Clear and Display Funtion\r\n");
+	printf("Set Clear and Display Function\r\n");
 	Paint_SetClearFuntion(LCD_1IN54_Clear);
 	Paint_SetDisplayFuntion(LCD_1IN54_DrawPaint);
 
@@ -26,7 +26,7 @@ void LCD_1in54_test() {
 	printf("drawing...\r\n");
 	Paint_SetRotate(180);
 	Paint_DrawString_EN(30, 10, "123", &Font24, YELLOW, RED);
-	Paint_DrawString_EN(30, 34, "TWAT", &Font24, BLUE, CYAN);
+	Paint_DrawString_EN(30, 34, "TWAT", &Font24, WHITE, BLACK);
 	Paint_DrawFloatNum(30, 58, 987.654321, 3, &Font12, WHITE, BLACK);
 	Paint_DrawString_CN(50, 180, "΢ѩ����", &Font24CN, WHITE, RED);
 	Paint_DrawImage(gImage_1, 25, 70, 60, 60);
