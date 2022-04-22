@@ -230,7 +230,7 @@ void SystemClock_Config(void) {
 }
 
 /**
- * @brief ADC1 Initialization Function
+ * @brief ADC1 Initialisation Function
  * @param None
  * @retval None
  */
@@ -274,7 +274,7 @@ static void MX_ADC1_Init(void) {
 }
 
 /**
- * @brief I2C1 Initialization Function
+ * @brief I2C1 Initialisation Function
  * @param None
  * @retval None
  */
@@ -306,7 +306,7 @@ static void MX_I2C1_Init(void) {
 }
 
 /**
- * @brief SPI1 Initialization Function
+ * @brief SPI1 Initialisation Function
  * @param None
  * @retval None
  */
@@ -342,7 +342,7 @@ static void MX_SPI1_Init(void) {
 }
 
 /**
- * @brief TIM3 Initialization Function
+ * @brief TIM3 Initialisation Function
  * @param None
  * @retval None
  */
@@ -381,6 +381,18 @@ static void MX_TIM3_Init(void) {
 			!= HAL_OK) {
 		Error_Handler();
 	}
+	if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2)
+			!= HAL_OK) {
+		Error_Handler();
+	}
+	if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3)
+			!= HAL_OK) {
+		Error_Handler();
+	}
+	if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4)
+			!= HAL_OK) {
+		Error_Handler();
+	}
 	/* USER CODE BEGIN TIM3_Init 2 */
 //
 	/* USER CODE END TIM3_Init 2 */
@@ -389,7 +401,7 @@ static void MX_TIM3_Init(void) {
 }
 
 /**
- * @brief USART2 Initialization Function
+ * @brief USART2 Initialisation Function
  * @param None
  * @retval None
  */
@@ -420,7 +432,7 @@ static void MX_USART2_UART_Init(void) {
 }
 
 /**
- * @brief USB Initialization Function
+ * @brief USB Initialisation Function
  * @param None
  * @retval None
  */
@@ -449,7 +461,7 @@ static void MX_USB_PCD_Init(void) {
 }
 
 /**
- * @brief GPIO Initialization Function
+ * @brief GPIO Initialisation Function
  * @param None
  * @retval None
  */
@@ -463,7 +475,7 @@ static void MX_GPIO_Init(void) {
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOA, LCD_DC_Pin | LCD_RST_Pin, GPIO_PIN_RESET);
@@ -471,12 +483,12 @@ static void MX_GPIO_Init(void) {
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(LCD_CS_GPIO_Port, LCD_CS_Pin, GPIO_PIN_RESET);
 
-	/*Configure GPIO pin : LED_Pin */
-	GPIO_InitStruct.Pin = LED_Pin;
+	/*Configure GPIO pin : PC13 */
+	GPIO_InitStruct.Pin = GPIO_PIN_13;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : LCD_DC_Pin LCD_RST_Pin */
 	GPIO_InitStruct.Pin = LCD_DC_Pin | LCD_RST_Pin;
